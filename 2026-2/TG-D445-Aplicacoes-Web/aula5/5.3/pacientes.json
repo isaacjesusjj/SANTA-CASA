@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Paciente 1",
+    "idade": "19 anos",
+    "ultimaSessao": "15/09/2026",
+    "status": "Em acompanhamento"
+  },
+  {
+    "nome": "Paciente 2",
+    "idade": "22 anos",
+    "ultimaSessao": "12/09/2026",
+    "status": "Em acompanhamento"
+  }
+]
