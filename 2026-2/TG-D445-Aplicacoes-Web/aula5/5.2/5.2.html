@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes - Sistema de Psicologia</title>
+    <link rel="stylesheet" href="5.2.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Lista de pacientes -->
+        <div class="painel-esquerdo">
+            <select id="selectPacientes" size="5">
+                <option value="0" selected>Paciente 1</option>
+                <option value="1">Paciente 2</option>
+                <option value="2">Paciente 3</option>
+                <option value="3">Paciente 4</option>
+                <option value="4">Paciente 5</option>
+            </select>
+        </div>
+
+        <!-- Meio: Botões -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+            <button id="btnAbrirModal">Novo Paciente</button>
+        </div>
+
+        <!-- Direita: Informações do paciente -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Nome</strong>
+                <div id="divNome">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Idade</strong>
+                <div id="divIdade">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Data da última sessão</strong>
+                <div id="divUltimaSessao">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Status</strong>
+                <div id="divStatus">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Formulário para Inserção de Dados -->
+    <div class="modal-overlay" id="modalForm">
+        <div class="modal-content">
+            <h3>Cadastrar Novo Paciente</h3>
+            <div class="form-group">
+                <label for="inputNome">Nome do Paciente:</label>
+                <input type="text" id="inputNome" placeholder="Ex: Paciente 6">
+            </div>
+            <div class="form-group">
+                <label for="inputIdade">Idade:</label>
+                <input type="text" id="inputIdade" placeholder="Ex: 30 anos">
+            </div>
+            <div class="form-group">
+                <label for="inputUltimaSessao">Data da última sessão:</label>
+                <input type="text" id="inputUltimaSessao" placeholder="Ex: 17/09/2026">
+            </div>
+            <div class="form-group">
+                <label for="inputStatus">Status:</label>
+                <input type="text" id="inputStatus" placeholder="Ex: Em acompanhamento">
+            </div>
+            <div class="modal-acoes">
+                <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                <button type="button" class="btn-salvar" id="btnSalvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="5.2.js"></script>
+
+</body>
+</html>
