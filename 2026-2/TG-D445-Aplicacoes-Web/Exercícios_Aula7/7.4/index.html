@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 4 - Manipulador JSON</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    textarea { width: 100%; height: 120px; font-family: monospace; margin-bottom: 10px; }
+    .btn-group { display: flex; gap: 10px; margin-bottom: 20px; }
+    button { flex: 1; padding: 10px; cursor: pointer; }
+    .saida { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; white-space: pre-wrap; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h2>Importador / Exportador JSON de Produtos</h2>
+  
+  <label for="jsonInput">Cole a string JSON abaixo:</label>
+  <textarea id="jsonInput" placeholder='[{"nome": "Teclado", "preco": 150}]'></textarea>
+
+  <div class="btn-group">
+    <button onclick="processarJSON()">Ler texto JSON (processar)</button>
+    <button onclick="exportarNovoJSON()">Gerar novo arquivo JSON</button>
+  </div>
+
+  <h3>Resultado / Output:</h3>
+  <div id="output" class="saida">Aguardando ação...</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

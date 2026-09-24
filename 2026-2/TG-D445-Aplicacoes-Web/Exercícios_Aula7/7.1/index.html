@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 1 - Perfil</title>
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; margin: 0; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+    button { background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 id="nome">Nome do Usuário</h2>
+    <p id="idade">Idade: --</p>
+    <p id="biografia">Biografia aqui...</p>
+    <button onclick="atualizarPerfil()">Carregar Perfil</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

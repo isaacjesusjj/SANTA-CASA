@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 5 - Catálogo Completo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f9; max-width: 800px; margin: 0 auto; }
+    .filtros { display: flex; gap: 10px; margin-bottom: 20px; background: white; padding: 15px; border-radius: 8px; }
+    input, select { padding: 8px; flex: 1; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+    .card-produto { background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+    .preco { color: #2e7d32; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Catálogo de Produtos</h2>
+
+  <div class="filtros">
+    <input type="text" id="filtroTexto" placeholder="Buscar por nome..." onkeyup="filtrarProdutos()">
+    <select id="filtroCategoria" onchange="filtrarProdutos()">
+      <option value="todas">Todas as Categorias</option>
+      <option value="Eletrônicos">Eletrônicos</option>
+      <option value="Roupas">Roupas</option>
+    </select>
+  </div>
+
+  <div id="gradeProdutos" class="grid"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

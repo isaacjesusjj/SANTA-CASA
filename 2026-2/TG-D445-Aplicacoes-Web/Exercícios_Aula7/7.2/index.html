@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 2 - Validador</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; background: #eef2f3; }
+    .box { background: white; max-width: 320px; padding: 20px; border-radius: 8px; margin: 0 auto; }
+    input, button { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+    .mensagem { font-weight: bold; margin-top: 10px; }
+    .permitido { color: green; }
+    .negado { color: red; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>Entrada no Evento</h3>
+    <label>Sua idade:</label>
+    <input type="number" id="inputEntrada" placeholder="Digite sua idade">
+    <button onclick="verificarAcesso()">Verificar</button>
+    <p id="resultado" class="mensagem"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
