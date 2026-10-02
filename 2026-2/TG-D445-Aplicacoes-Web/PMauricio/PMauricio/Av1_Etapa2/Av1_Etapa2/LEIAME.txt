@@ -1,0 +1,54 @@
+URNA ELETRONICA - SIMULACAO 2026
+AV1 - Etapa 2 - Aplicacoes Web
+Partidos do grupo: PDisney, PMarvel e PMauricio
+
+
+COMO ABRIR (qualquer uma das formas funciona)
+
+1) Duplo clique em urna.html. Nao precisa instalar nada.
+   Nesse caso a urna usa a copia dos dados que esta em dados/dados_embutidos.js
+   (a tela mostra "dados: copia embutida").
+
+2) Live Server (VS Code): botao direito em urna.html > Open with Live Server.
+   Nesse caso a urna le os arquivos dados/*.json diretamente.
+
+3) Pela internet (GitHub Pages): suba a pasta no repositorio, ative o Pages
+   (Settings > Pages > Deploy from a branch) e abra:
+   https://SEU-USUARIO.github.io/SEU-REPOSITORIO/Av1_Etapa2/urna.html
+
+
+COMO USAR
+
+- Digite o numero com o mouse ou com o teclado do computador:
+  0-9 digitam | B = Branco | Backspace = Corrige | Enter = Confirma
+- A ordem dos cargos segue a eleicao de 2026: Deputado Federal, Deputado
+  Estadual, Senador (1a vaga), Senador (2a vaga), Governador e Presidente.
+- Ao confirmar o voto para Presidente aparece "F I M" e a urna volta para o
+  proximo eleitor depois de 3 segundos.
+- "Encerrar votacao e enviar ao TSE": baixa automaticamente o arquivo votos.json
+  (registro voto a voto) e mostra o Boletim de Urna na tela, com os botoes
+  para baixar boletimDeUrna.json e imprimir.
+- O botao "Som" liga e desliga o som de confirmacao (audio/confirma-urna.mp3).
+
+
+ARQUIVOS
+
+urna.html           estrutura da urna (so HTML)
+urna.css            visual da urna e do boletim
+urna.js             fluxo de votacao, teclas e eventos
+dados.js            leitura e integracao dos JSONs dos partidos
+boletim.js          Boletim de Urna (bonus 1)
+som.js              som ao confirmar o voto (bonus 2)
+audio/              confirma-urna.mp3
+dados/              PDisney.json, PMarvel.json, PMauricio.json (gerados na Etapa 1)
+dados/dados_embutidos.js   copia dos JSONs para o duplo clique (gerada por script)
+gerar_dados_embutidos.py   gera a copia acima
+
+
+SE ALTERAR ALGUM ARQUIVO DE dados/*.json
+
+Rode, dentro desta pasta:   python gerar_dados_embutidos.py
+Assim o duplo clique passa a usar os dados novos. Com o Live Server, a urna
+mostra um aviso quando a copia embutida estiver desatualizada.
+Para incluir outro partido: coloque o JSON em dados/, acrescente o caminho em
+ARQUIVOS_PARTIDOS (dados.js) e rode o script acima.
