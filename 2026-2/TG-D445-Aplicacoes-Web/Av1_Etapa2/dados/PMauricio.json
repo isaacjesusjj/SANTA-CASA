@@ -1,0 +1,44 @@
+[
+  {
+    "nome": "Mônica",
+    "numero": "94",
+    "foto": "https://upload.wikimedia.org/wikipedia/pt/4/43/Monica_%28Mauricio_de_Sousa_Produ%C3%A7%C3%B5es%29.png?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20230409151852",
+    "cargo": "Presidente"
+  },
+  {
+    "nome": "Cebolinha",
+    "numero": "94",
+    "foto": "https://i.pinimg.com/736x/59/ee/aa/59eeaa595652282f8d3012a098fd66f1.jpg",
+    "cargo": "Governador(a)"
+  },
+  {
+    "nome": "Cascão",
+    "numero": "941",
+    "foto": "https://i.pinimg.com/736x/06/57/70/0657702152f0b19949176d0821a1b618.jpg",
+    "cargo": "Senador(a)"
+  },
+  {
+    "nome": "Magali",
+    "numero": "942",
+    "foto": "https://i.pinimg.com/736x/bf/7d/59/bf7d59ce9b442df024e9e8d984160947.jpg",
+    "cargo": "Senador(a)"
+  },
+  {
+    "nome": "Chico Bento",
+    "numero": "9410",
+    "foto": "https://i.pinimg.com/originals/b7/b5/37/b7b53795c4a1a95b064909a948724d87.png?nii=t",
+    "cargo": "Deputado(a) Federal"
+  },
+  {
+    "nome": "Franjinha",
+    "numero": "9420",
+    "foto": "https://storage.mslocacoes.com/mslocacoes/efc7a66cc53a495bb75fc3ca45dffcad.jpg",
+    "cargo": "Deputado(a) Federal"
+  },
+  {
+    "nome": "Bidú",
+    "numero": "94100",
+    "foto": "https://i.pinimg.com/736x/1b/64/70/1b6470c3b5e17dd420e6eaabf667c51e.jpg",
+    "cargo": "Deputado(a) Estadual"
+  }
+]

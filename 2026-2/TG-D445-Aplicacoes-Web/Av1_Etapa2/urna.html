@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urna Eletrônica - Simulação 2026</title>
+    <link rel="stylesheet" href="urna.css">
+    <!-- A ordem importa: cópia dos dados -> dados -> som -> boletim -> fluxo da urna -->
+    <script src="dados/dados_embutidos.js" defer></script>
+    <script src="dados.js" defer></script>
+    <script src="som.js" defer></script>
+    <script src="boletim.js" defer></script>
+    <script src="urna.js" defer></script>
+</head>
+<body>
+
+    <div class="header-controle">
+        <button type="button" class="btn-tse" id="btnEncerrar">Encerrar votação e enviar ao TSE</button>
+        <button type="button" class="btn-som" id="btnSom">Som: ligado</button>
+    </div>
+
+    <p class="status-partidos" id="statusPartidos">Carregando partidos...</p>
+
+    <!-- Urna Eletrônica -->
+    <div class="urna">
+
+        <!-- Tela LCD -->
+        <div class="tela" id="tela">
+
+            <!-- Tela de votação -->
+            <div class="conteudo-voto" id="conteudo-voto">
+                <div class="tela-topo">
+                    <div>
+                        <span>SEU VOTO PARA</span>
+                        <div class="cargo-titulo" id="lblCargo">---</div>
+                    </div>
+                    <div class="foto-area">
+                        <img id="imgCandidato" class="foto-candidato oculto" alt="Foto do candidato" referrerpolicy="no-referrer">
+                        <div id="fotoIndisponivel" class="foto-candidato foto-indisponivel oculto">Foto indisponível</div>
+                    </div>
+                </div>
+
+                <div class="quadrados-numero" id="containerDigitos"></div>
+
+                <div class="dados-candidato" id="dadosCandidato">
+                    <div id="blocoCandidato" class="oculto">
+                        <strong>Nome:</strong> <span id="valNome"></span><br>
+                        <strong>Partido:</strong> <span id="valPartido"></span>
+                    </div>
+                    <div id="blocoNulo" class="oculto">
+                        <div class="texto-grande">VOTO NULO</div>
+                        <span class="texto-pequeno">Número não correspondente a nenhum candidato</span>
+                    </div>
+                    <div id="blocoBranco" class="oculto">
+                        <div class="texto-branco">VOTO EM BRANCO</div>
+                    </div>
+                </div>
+
+                <div class="tela-instrucoes" id="instrucoes">
+                    Aperte a tecla:<br>
+                    <strong>VERDE</strong> para CONFIRMAR<br>
+                    <strong>LARANJA</strong> para CORRIGIR
+                </div>
+            </div>
+
+            <!-- Tela de FIM (aparece depois do voto para Presidente) -->
+            <div class="mensagem-fim oculto" id="telaFim">F I M</div>
+
+            <!-- Tela de votação encerrada -->
+            <div class="mensagem-centro oculto" id="telaEncerrada">
+                <div>VOTAÇÃO ENCERRADA</div>
+                <div class="sub">Votos enviados ao TSE (votos.json). Boletim de Urna abaixo.</div>
+            </div>
+
+            <!-- Tela de erro na carga dos partidos -->
+            <div class="mensagem-centro oculto" id="telaErro">
+                <div>URNA BLOQUEADA</div>
+                <div class="sub">Não foi possível carregar os partidos. Veja o aviso acima.</div>
+            </div>
+        </div>
+
+        <!-- Teclado Numérico -->
+        <div class="teclado">
+            <div class="teclado-topo">JUSTIÇA ELEITORAL</div>
+
+            <div class="teclado-linha">
+                <button type="button" class="btn-num" data-tecla="1">1</button>
+                <button type="button" class="btn-num" data-tecla="2">2</button>
+                <button type="button" class="btn-num" data-tecla="3">3</button>
+            </div>
+            <div class="teclado-linha">
+                <button type="button" class="btn-num" data-tecla="4">4</button>
+                <button type="button" class="btn-num" data-tecla="5">5</button>
+                <button type="button" class="btn-num" data-tecla="6">6</button>
+            </div>
+            <div class="teclado-linha">
+                <button type="button" class="btn-num" data-tecla="7">7</button>
+                <button type="button" class="btn-num" data-tecla="8">8</button>
+                <button type="button" class="btn-num" data-tecla="9">9</button>
+            </div>
+            <div class="teclado-linha">
+                <button type="button" class="btn-num" data-tecla="0">0</button>
+            </div>
+
+            <div class="teclado-acoes">
+                <button type="button" class="btn-acao btn-branco" id="btnBranco">Branco</button>
+                <button type="button" class="btn-acao btn-corrige" id="btnCorrige">Corrige</button>
+                <button type="button" class="btn-acao btn-confirma" id="btnConfirma">Confirma</button>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="dica-teclas">Teclado do computador: 0-9 digitam &middot; B = Branco &middot; Backspace = Corrige &middot; Enter = Confirma</p>
+
+    <!-- Boletim de Urna (Bônus 1) - preenchido pelo boletim.js ao encerrar a votação -->
+    <section class="boletim oculto" id="boletim">
+        <h2>Boletim de Urna</h2>
+        <p class="resumo" id="boletimResumo"></p>
+        <div id="boletimCargos"></div>
+        <div class="boletim-acoes">
+            <button type="button" class="btn-tse" id="btnBaixarBoletim">Baixar boletimDeUrna.json</button>
+            <button type="button" class="btn-tse" id="btnBaixarVotos">Baixar votos.json novamente</button>
+            <button type="button" class="btn-tse" id="btnImprimir">Imprimir boletim</button>
+        </div>
+    </section>
+
+</body>
+</html>

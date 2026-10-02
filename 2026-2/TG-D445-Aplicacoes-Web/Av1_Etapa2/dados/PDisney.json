@@ -1,0 +1,32 @@
+[
+  {
+    "nome": "Tio Patinhas",
+    "numero": "91",
+    "foto": "https://i.pinimg.com/736x/d4/da/fb/d4dafb87ee758cba38cce6a73aa32a42.jpg",
+    "cargo": "Presidente"
+  },
+  {
+    "nome": "Pato Donald",
+    "numero": "91",
+    "foto": "https://listindiario.com/uploads/2023/06/24/6497b467b4d3f.jpeg",
+    "cargo": "Governador(a)"
+  },
+  {
+    "nome": "Mago Merlin",
+    "numero": "911",
+    "foto": "https://tse4.mm.bing.net/th/id/OIP.V4GmvDkUKtT32Uq4v7Rl-AHaFk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "cargo": "Senador(a)"
+  },
+  {
+    "nome": "Mickey Mouse",
+    "numero": "9122",
+    "foto": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mickey_Mouse.png",
+    "cargo": "Deputado(a) Federal"
+  },
+  {
+    "nome": "Minnie Mouse",
+    "numero": "91333",
+    "foto": "https://tse4.mm.bing.net/th/id/OIP.wHlMBunLDKyATuByUz4e1QHaKe?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "cargo": "Deputado(a) Estadual"
+  }
+]
