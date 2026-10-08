@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; margin: 0; background: #f8f9fa; }
+    .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 320px; }
+    .input-group { display: flex; gap: 8px; margin-bottom: 20px; }
+    input { flex: 1; padding: 8px; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    button { padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { padding: 10px; background: #e9ecef; border-bottom: 1px solid #ddd; border-radius: 4px; margin-bottom: 6px; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Minha Lista</h2>
+    <div class="input-group">
+      <input type="text" id="campo-tarefa" placeholder="Digite uma tarefa...">
+      <button id="btn-adicionar">Add</button>
+    </div>
+    <ul id="lista-tarefas"></ul>
+  </div>
+
+  <script>
+    // 1. Selecionando os elementos que vamos interagir
+    const inputTarefa = document.querySelector('#campo-tarefa');
+    const btnAdicionar = document.querySelector('#btn-adicionar');
+    const listaTarefas = document.querySelector('#lista-tarefas');
+
+    // 2. Capturar o clique no botão "Add"
+    btnAdicionar.addEventListener('click', () => {
+      
+      // O .trim() remove espaços em branco que o usuário possa ter digitado sem querer no começo ou fim
+      const texto = inputTarefa.value.trim();
+
+      // Verifica se o texto NÃO está vazio
+      if (texto !== '') {
+        
+        // 3. Criar o elemento <li>
+        const novaTarefa = document.createElement('li');
+        novaTarefa.textContent = texto; // Coloca o texto digitado dentro do <li>
+        
+        // Adiciona o novo <li> dentro da nossa <ul>
+        listaTarefas.appendChild(novaTarefa);
+
+        // 4. Limpar o campo de texto para a próxima tarefa
+        inputTarefa.value = '';
+        
+        // Bônus de usabilidade: devolve o cursor piscando para o campo de texto
+        inputTarefa.focus(); 
+      }
+    });
+  </script>
+</body>
+</html>

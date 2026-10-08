@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { 
+      font-family: sans-serif; 
+      display: flex; 
+      justify-content: center; 
+      padding-top: 50px; 
+      margin: 0; 
+      background: #f4f4f9; 
+    }
+    .card { 
+      background: white; 
+      padding: 2rem; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+      width: 420px; 
+    }
+    input { 
+      width: 100%; 
+      padding: 10px; 
+      font-size: 1rem; 
+      border: 1px solid #ccc; 
+      border-radius: 4px; 
+      box-sizing: border-box; 
+      margin-bottom: 15px; 
+    }
+    ul { 
+      list-style: none; 
+      padding: 0; 
+      margin: 0; 
+    }
+    li { 
+      padding: 12px; 
+      border-bottom: 1px solid #eee; 
+      display: none; /* A lista fica oculta por padrão */
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    li:last-child { 
+      border-bottom: none; 
+    }
+    .btn-premio {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .btn-premio:hover {
+      background-color: #45a049;
+    }
+    .emoji-chocolate {
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>ADS - Lista de Alunos</h2>
+    <input type="text" id="busca" placeholder="Buscar aluno pelo início do nome...">
+    <ul id="lista">
+      <li class="item"><span class="nome">Adonis Silveira</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Andressa de Sales</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">BEATRIZ FEITOSA</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">CAROLINE DIAS</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">DANIEL DOS SANTOS</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Davi Lupette Tri</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">DILSON RODRIGUES</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">EMANUELLI DOS REIS</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">EZEQUIEL LUCAS GOI</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Felipe Pedrosa</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Felipe Vitorino</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Giovane Guedes Sa</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Gustavo Dos Santos</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Heitor Guimarães</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">HUGO SOARES</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">IGOR FRANÇA</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Isaac De Jesus</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Ismar Frango</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Jessica Julia</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">João Victor</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Juan Carlos</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Kevin Das Neves</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">LUIZ GUSTAVO</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Matheus Vince</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">MURILO MATEUS</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Rafael Henrique</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Rickson Moraes</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">RYAN EWERTON</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Samuel Carlos</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">Sandro Silva</span> <button class="btn-premio">Merece prêmio?</button></li>
+      <li class="item"><span class="nome">SOFIA YUKI</span> <button class="btn-premio">Merece prêmio?</button></li>
+    </ul>
+  </div>
+
+  <script>
+// Selecionando os elementos que vamos utilizar
+const campoBusca = document.querySelector('#busca');
+const itensLista = document.querySelectorAll('.item');
+const botoesPremio = document.querySelectorAll('.btn-premio');
+
+// ==========================================
+// EXERCÍCIO 0.5: Filtro de Busca
+// ==========================================
+campoBusca.addEventListener('input', () => {
+  // Captura o que foi digitado, remove espaços extras e converte para minúsculas
+  const termo = campoBusca.value.trim().toLowerCase();
+
+  // Percorre (itera) sobre cada <li> da lista
+  itensLista.forEach(item => {
+    // Busca o texto da tag <span class="nome"> dentro do <li> atual
+    const nome = item.querySelector('.nome').textContent.toLowerCase();
+
+    // Se o campo de busca estiver vazio, mantemos a lista oculta
+    if (termo === '') {
+      item.style.display = 'none';
+    } 
+    // Verifica se o nome começa com o termo digitado (conforme pede o placeholder)
+    else if (nome.startsWith(termo)) {
+      item.style.display = 'flex'; // Usando flex em vez de block para manter o alinhamento
+    } 
+    else {
+      item.style.display = 'none';
+    }
+  });
+});
+
+// ==========================================
+// EXERCÍCIO 0.5.1: Variação do Prêmio
+// ==========================================
+botoesPremio.forEach(botao => {
+  // Adiciona um evento de clique para CADA botão da lista
+  botao.addEventListener('click', () => {
+    
+    // Cria um novo elemento <span> para guardar o emoji
+    const chocolate = document.createElement('span');
+    chocolate.textContent = '🍫';
+    chocolate.classList.add('emoji-chocolate'); // Adiciona a classe que já existe no seu CSS
+    
+    // Substitui o botão clicado pelo novo elemento de chocolate
+    botao.replaceWith(chocolate);
+  });
+});
+  </script>
+</body>
+</html>

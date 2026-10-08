@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Tarefas</title>
+  <style>
+    /* Estilo básico para organizar a interface */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      padding: 8px;
+      width: 250px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+    ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 2. Interface HTML -->
+  <h2>Minhas Tarefas</h2>
+  <input type="text" id="campoTarefa" placeholder="Descreva a tarefa...">
+  <button id="btnAdicionar">Adicionar Tarefa</button>
+  
+  <ul id="minhasTarefas"></ul>
+
+  <script>
+    // 1. Declaração da variável global com array vazio
+    let listaDeTarefas = [];
+
+    // 4. Função responsável por atualizar a lista na tela
+    function atualizarLista() {
+      const listaHTML = document.getElementById('minhasTarefas');
+      
+      // Limpa todo o conteúdo visual da lista HTML
+      listaHTML.innerHTML = "";
+
+      // Percorre o array utilizando um laço for tradicional
+      for (let i = 0; i < listaDeTarefas.length; i++) {
+        // A cada iteração, adiciona um item <li> concatenando com o conteúdo existente
+        listaHTML.innerHTML += `<li>${listaDeTarefas[i]}</li>`;
+      }
+    }
+
+    // 3. Ação de clicar no botão de adicionar
+    document.getElementById('btnAdicionar').addEventListener('click', function() {
+      const campoTexto = document.getElementById('campoTarefa');
+      const textoDigitado = campoTexto.value;
+
+      // Validação extra: só adiciona se o campo não estiver vazio
+      if (textoDigitado.trim() !== "") {
+        // Insere o texto no array
+        listaDeTarefas.push(textoDigitado);
+        
+        // Limpa o valor do campo de texto
+        campoTexto.value = "";
+        
+        // Chama a função para reconstruir a lista na tela
+        atualizarLista();
+      } else {
+        alert("Por favor, digite uma tarefa antes de adicionar!");
+      }
+    });
+  </script>
+
+</body>
+</html>

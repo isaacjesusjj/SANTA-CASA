@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Filtro e Busca em Tempo Real</title>
+</head>
+<body>
+
+  <!-- Campo de Busca -->
+  <input type="text" id="campo-busca" placeholder="Buscar tecnologia...">
+
+  <!-- Lista Estática de Tecnologias -->
+  <ul id="listaTecnologias">
+    <li>JavaScript</li>
+    <li>Python</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>PHP</li>
+    <li>Java</li>
+  </ul>
+
+  <script>
+    const campoBusca = document.getElementById('campo-busca');
+    const itens = document.querySelectorAll('#listaTecnologias li');
+
+    // Evento disparado a cada caractere digitado, alterado ou removido
+    campoBusca.oninput = function() {
+      const termo = campoBusca.value.toLowerCase();
+
+      itens.forEach(item => {
+        const texto = item.textContent.toLowerCase();
+
+        // Verifica se o texto do li contém o termo buscado
+        if (texto.includes(termo)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>

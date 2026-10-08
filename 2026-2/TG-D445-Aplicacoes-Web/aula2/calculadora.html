@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Multi-Operações</title>
+  <link rel="stylesheet" href="calculo.css">
+</head>
+<body>
+
+  <div class="card-principal">
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="20">
+      <span class="simbolo">%</span>
+      <input type="number" class="num2" value="50">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="10" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">x</span>
+      <input type="number" class="num2" value="2">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="20" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">+</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="15" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">-</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="5" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">÷</span>
+      <input type="number" class="num2" value="2">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="5" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="2">
+      <span class="simbolo">^</span>
+      <input type="number" class="num2" value="3">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="8" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="5">
+      <span class="simbolo">!</span>
+      <input type="number" class="num2" style="visibility: hidden;" value="0">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="120" readonly>
+    </div>
+
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="5">
+      <span class="simbolo">C</span>
+      <input type="number" class="num2" value="2">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="10" readonly>
+    </div>
+
+    <div class="linha-calculo" title="Soma todos os inteiros de N1 até N2">
+      <input type="number" class="num1" value="1">
+      <span class="simbolo">Σ</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="15" readonly>
+    </div>
+
+    <div class="linha-calculo" title="Multiplica todos os inteiros de N1 até N2">
+      <input type="number" class="num1" value="1">
+      <span class="simbolo">Π</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="120" readonly>
+    </div>
+
+  </div>
+
+  <script src="calculo.js"></script>
+</body>
+</html>

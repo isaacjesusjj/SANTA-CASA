@@ -1,0 +1,57 @@
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <title>Painel Dinâmico de Cadastros</title>
+    </head>
+    <body>
+
+    <!-- Formulário de Cadastro -->
+    <form id="form-produto">
+        <input type="text" id="nome-produto" placeholder="Nome do Produto" required>
+        <input type="number" id="preco-produto" placeholder="Preço (R$)" step="0.01" min="0" required>
+        <button type="submit">Cadastrar Produto</button>
+    </form>
+
+    <!-- Lista de Produtos -->
+    <ul id="lista-produtos"></ul>
+
+    <script>
+        const form = document.getElementById('form-produto');
+        const listaProdutos = document.getElementById('lista-produtos');
+
+        form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita que a página recarregue ao enviar o formulário
+
+        const inputNome = document.getElementById('nome-produto');
+        const inputPreco = document.getElementById('preco-produto');
+
+        // Formata o preço para duas casas decimais
+        const precoFormatado = parseFloat(inputPreco.value).toFixed(2);
+
+        // 1. Criação do item de lista (<li>)
+        const li = document.createElement('li');
+        li.textContent = `${inputNome.value} - R$ ${precoFormatado} `;
+
+        // 2. Criação do botão "Excluir"
+        const btnExcluir = document.createElement('button');
+        btnExcluir.textContent = 'Excluir';
+
+        // 3. Adição do evento de remoção usando .remove()
+        btnExcluir.onclick = function() {
+            li.remove();
+        };
+
+        // 4. Montagem dos nós na árvore DOM
+        li.appendChild(btnExcluir);
+        listaProdutos.appendChild(li);
+
+        // Limpa os campos do formulário para o próximo cadastro
+        inputNome.value = '';
+        inputPreco.value = '';
+        inputNome.focus();
+        });
+    </script>
+
+    </body>
+    </html>

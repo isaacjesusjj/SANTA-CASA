@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Alimentos e Nutrição</title>
+    <link rel="stylesheet" href="alimentos.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Listbox com os alimentos -->
+        <div class="painel-esquerdo">
+            <select id="selectAlimentos" size="5">
+                <option value="0" selected>Morango</option>
+                <option value="1">Banana Prata</option>
+                <option value="2">Maçã Gala</option>
+                <option value="3">Laranja Pera</option>
+                <option value="4">Abacaxi Pérola</option>
+            </select>
+        </div>
+
+        <!-- Meio: Botão -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+        </div>
+
+        <!-- Direita: Quadro de Informações -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Alimento</strong>
+                <div id="divNome">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Descrição</strong>
+                <div id="divDescricao">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Cultivo e Peso Médio</strong>
+                <div id="divCultivoPeso">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Tabela Nutricional</strong>
+                <div id="divNutricional">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Foto</strong>
+                <div id="divFoto">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="alimentos.js"></script>
+</body>
+</html>

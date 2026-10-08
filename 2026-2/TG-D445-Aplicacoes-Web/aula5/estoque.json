@@ -1,0 +1,155 @@
+let produtosData = [
+  {
+    "id": 101,
+    "nome": "Creme Dental Dentes Brancos",
+    "foto": "https://m.media-amazon.com/images/I/61Z63rpfqXL.jpg",
+    "precoCompra": 2.50,
+    "precoVenda": 4.99,
+    "quantidadeEstoque": 120,
+    "unidade": "Tubo de 90g"
+  },
+  {
+    "id": 102,
+    "nome": "Arroz Integral Tipo 1",
+    "foto": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&q=80",
+    "precoCompra": 18.20,
+    "precoVenda": 24.90,
+    "quantidadeEstoque": 45,
+    "unidade": "Pacote de 5kg"
+  },
+  {
+    "id": 103,
+    "nome": "Azeite de Oliva Extra Virgem",
+    "foto": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80",
+    "precoCompra": 28.00,
+    "precoVenda": 39.90,
+    "quantidadeEstoque": 30,
+    "unidade": "Garrafa de 500ml"
+  },
+  {
+    "id": 104,
+    "nome": "Café Torrado e Moído Tradicional",
+    "foto": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80",
+    "precoCompra": 11.50,
+    "precoVenda": 16.80,
+    "quantidadeEstoque": 85,
+    "unidade": "Pacote de 500g"
+  }
+];
+
+function formatarMoeda(valor) {
+  return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+// Renderiza os cards na tela criando o input e o botão "Atualizar" para cada produto
+function renderizarCards() {
+  const container = document.getElementById('gridProdutos');
+  container.innerHTML = '';
+
+  produtosData.forEach(produto => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${produto.foto}" alt="${produto.nome}" onerror="this.src='https://via.placeholder.com/300x180?text=Sem+Imagem'">
+      <div class="card-body">
+        <h3 class="card-title">${produto.nome}</h3>
+        <p class="card-text"><strong>Unidade:</strong> ${produto.unidade}</p>
+        
+        <!-- LINHA COM CAMPO DE ESTOQUE + BOTÃO ATUALIZAR -->
+        <div class="card-estoque-row">
+          <label for="estoque-${produto.id}">Estoque:</label>
+          <input 
+            type="number" 
+            id="estoque-${produto.id}" 
+            class="input-estoque" 
+            min="0" 
+            value="${produto.quantidadeEstoque}" 
+          >
+          <button class="btn-update" onclick="atualizarEstoque(${produto.id})">Atualizar</button>
+        </div>
+
+        <p class="card-text"><strong>Custo:</strong> ${formatarMoeda(produto.precoCompra)}</p>
+        <p class="card-text price-tag"><strong>Venda:</strong> ${formatarMoeda(produto.precoVenda)}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+/**
+ * FUNÇÃO: atualizarEstoque(id)
+ * Executada ao clicar no botão "Atualizar" do card.
+ * Pega o valor digitado no input do produto correspondente e salva no array.
+ */
+function atualizarEstoque(id) {
+  const inputEstoque = document.getElementById(`estoque-${id}`);
+  const novaQuantidade = parseInt(inputEstoque.value, 10);
+
+  if (isNaN(novaQuantidade) || novaQuantidade < 0) {
+    alert("Por favor, digite um valor de estoque válido.");
+    renderizarCards();
+    return;
+  }
+
+  const produto = produtosData.find(p => p.id === id);
+  if (produto) {
+    produto.quantidadeEstoque = novaQuantidade;
+    alert(`Estoque do produto "${produto.nome}" atualizado para ${novaQuantidade}!`);
+  }
+}
+
+/**
+ * FUNÇÃO: salvarEstoque()
+ * Executada no botão "Salvar Estoque" do cabeçalho.
+ * Exporta e baixa o JSON com os dados atualizados.
+ */
+function salvarEstoque() {
+  const jsonString = JSON.stringify(produtosData, null, 2);
+  const dataUri = "data:text/json;charset=utf-8," + encodeURIComponent(jsonString);
+
+  const downloadAnchor = document.createElement('a');
+  downloadAnchor.setAttribute("href", dataUri);
+  downloadAnchor.setAttribute("download", "produtos_estoque_atualizado.json");
+
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+}
+
+// Funções do Modal
+function abrirModal() {
+  document.getElementById('modalOverlay').style.display = 'flex';
+}
+
+function fecharModal() {
+  document.getElementById('modalOverlay').style.display = 'none';
+  document.getElementById('formProduto').reset();
+}
+
+function incluirProduto(event) {
+  event.preventDefault();
+
+  const nome = document.getElementById('nome').value.trim();
+  const foto = document.getElementById('foto').value.trim();
+  const precoCompra = parseFloat(document.getElementById('precoCompra').value);
+  const precoVenda = parseFloat(document.getElementById('precoVenda').value);
+  const quantidadeEstoque = parseInt(document.getElementById('quantidadeEstoque').value, 10);
+  const unidade = document.getElementById('unidade').value.trim();
+
+  const novoProduto = {
+    id: Date.now(),
+    nome,
+    foto,
+    precoCompra,
+    precoVenda,
+    quantidadeEstoque,
+    unidade
+  };
+
+  produtosData.push(novoProduto);
+  renderizarCards();
+  fecharModal();
+}
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', renderizarCards);

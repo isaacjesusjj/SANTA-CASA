@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estados do Centro-Oeste do Brasil</title>
+    <link rel="stylesheet" href="regiao.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Listbox com as siglas -->
+        <div class="painel-esquerdo">
+            <select id="selectEstados" size="4">
+                <option value="0" selected>GO</option>
+                <option value="1">MT</option>
+                <option value="2">MS</option>
+                <option value="3">DF</option>
+            </select>
+        </div>
+
+        <!-- Meio: Botão -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+        </div>
+
+        <!-- Direita: Quadros de informações -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Capital</strong>
+                <div id="divCapital">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Área</strong>
+                <div id="divArea">-</div>
+            </div>
+            <div class="card-info">
+                <strong>População</strong>
+                <div id="divPopulacao">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Bandeira</strong>
+                <div id="divBandeira">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="regiao.js"></script>
+</body>
+</html>

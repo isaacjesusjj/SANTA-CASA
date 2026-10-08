@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Multi-Operações</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #1a1b26; /* Fundo escuro do site */
+      padding: 40px 0;
+    }
+
+    /* O painel grande escuro que agrupa todas as linhas */
+    .card-principal {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background: #0a0908;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Cada linha individual contendo a estrutura horizontal */
+    .linha-calculo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    input[type="number"], input[type="text"].resultado {
+      width: 90px;
+      padding: 12px;
+      font-size: 18px;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      background-color: #eae0d5;
+      color: #333;
+      outline: none;
+    }
+
+    /* Estilização para o campo de resultado */
+    input.resultado {
+      background-color: #c6ac8f;
+      color: #eae0d5;
+      border: 1px solid #3b3f5c;
+      font-weight: bold;
+    }
+
+    .simbolo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+      width: 28px;
+      text-align: center;
+    }
+
+    .btn-igual {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      background-color: #5e503f;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-igual:hover {
+      background-color: #4341c2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-principal">
+
+    <!-- Linha 1: Porcentagem -->
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="20">
+      <span class="simbolo">%</span>
+      <input type="number" class="num2" value="50">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="10" readonly>
+    </div>
+
+    <!-- Linha 2: Multiplicação -->
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">x</span>
+      <input type="number" class="num2" value="2">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="20" readonly>
+    </div>
+
+    <!-- Linha 3: Soma -->
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">+</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="15" readonly>
+    </div>
+
+    <!-- Linha 4: Subtração -->
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">-</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="5" readonly>
+    </div>
+
+    <!-- Linha 5: Divisão -->
+    <div class="linha-calculo">
+      <input type="number" class="num1" value="10">
+      <span class="simbolo">÷</span>
+      <input type="number" class="num2" value="2">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="5" readonly>
+    </div>
+
+    <!-- Linha 6: Somatório (Exercício 2.2) -->
+    <div class="linha-calculo" title="Somatório de N1 a N2">
+      <input type="number" class="num1" value="1">
+      <span class="simbolo">∑</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="" readonly>
+    </div>
+
+    <!-- Linha 7: Produtório (Exercício 2.2) -->
+    <div class="linha-calculo" title="Produtório de N1 a N2">
+      <input type="number" class="num1" value="1">
+      <span class="simbolo">∏</span>
+      <input type="number" class="num2" value="5">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="" readonly>
+    </div>
+
+    <!-- Linha 8: Potência (Exercício 2.3) -->
+    <div class="linha-calculo" title="N1 elevado a N2">
+      <input type="number" class="num1" value="2">
+      <span class="simbolo">^</span>
+      <input type="number" class="num2" value="3">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="" readonly>
+    </div>
+
+    <!-- Linha 9: Fatorial (Exercício 2.3) -->
+    <div class="linha-calculo" title="Fatorial de N1">
+      <input type="number" class="num1" value="5">
+      <span class="simbolo">!</span>
+      <!-- O num2 fica escondido aqui porque fatorial usa só 1 número -->
+      <input type="number" class="num2" value="0" style="visibility: hidden;">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="" readonly>
+    </div>
+
+    <!-- Linha 10: Combinação (Exercício 2.4) -->
+    <div class="linha-calculo" title="Combinação: N1 escolhe N2">
+      <input type="number" class="num1" value="5">
+      <span class="simbolo">C</span>
+      <input type="number" class="num2" value="2">
+      <button class="btn-igual">=</button>
+      <input type="text" class="resultado" value="" readonly>
+    </div>
+
+  </div>
+
+  <script>
+    // Função para calcular Fatorial
+    function calcularFatorial(n) {
+      if (n < 0) return "Erro"; 
+      if (n === 0 || n === 1) return 1;
+      let resultado = 1;
+      for (let i = 2; i <= n; i++) {
+        resultado *= i;
+      }
+      return resultado;
+    }
+
+    const linhas = document.querySelectorAll(".linha-calculo");
+
+    linhas.forEach(function(linha) {
+      const botao = linha.querySelector(".btn-igual");
+      const input1 = linha.querySelector(".num1");
+      const input2 = linha.querySelector(".num2");
+      const inputResultado = linha.querySelector(".resultado");
+      const simbolo = linha.querySelector(".simbolo").textContent.trim();
+
+      botao.addEventListener("click", function() {
+        const n1 = Number(input1.value);
+        const n2 = Number(input2.value);
+        let conta = 0;
+
+        if (simbolo === "%") {
+          conta = (n1 / 100) * n2;
+        } else if (simbolo === "x" || simbolo === "X") {
+          conta = n1 * n2;
+        } else if (simbolo === "+") {
+          conta = n1 + n2;
+        } else if (simbolo === "-") {
+          conta = n1 - n2;
+        } else if (simbolo === "÷" || simbolo === "/") {
+          conta = n2 !== 0 ? n1 / n2 : "Erro";
+        } 
+        // Lógica do Somatório (Ex: 2.2)
+        else if (simbolo === "∑") {
+          conta = 0;
+          for(let i = n1; i <= n2; i++) {
+            conta += i;
+          }
+        } 
+        // Lógica do Produtório (Ex: 2.2)
+        else if (simbolo === "∏") {
+          if (n1 > n2) {
+            conta = 0; 
+          } else {
+            conta = 1;
+            for(let i = n1; i <= n2; i++) {
+              conta *= i;
+            }
+          }
+        } 
+        // Lógica da Potência (Ex: 2.3)
+        else if (simbolo === "^") {
+          conta = Math.pow(n1, n2);
+        } 
+        // Lógica do Fatorial (Ex: 2.3)
+        else if (simbolo === "!") {
+          conta = calcularFatorial(n1);
+        } 
+        // Lógica da Combinação (Ex: 2.4)
+        else if (simbolo === "C") {
+          if (n1 >= n2 && n1 >= 0 && n2 >= 0) {
+            conta = calcularFatorial(n1) / (calcularFatorial(n2) * calcularFatorial(n1 - n2));
+          } else {
+            conta = "Erro"; // Ex: tentar combinar 5 escolhendo 10
+          }
+        }
+
+        inputResultado.value = conta;
+      });
+    });
+  </script>
+
+</body>
+</html>

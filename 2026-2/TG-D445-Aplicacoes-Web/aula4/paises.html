@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Países da América Latina</title>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #27ae60;
+      --bg: #f4f7f6;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    button.btn-save {
+      background-color: var(--accent);
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-title {
+      margin: 0 0 10px 0;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .card-text {
+      margin: 5px 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-cancel {
+      background-color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>América Latina</h1>
+    <div class="btn-group">
+      <button onclick="abrirModal()">Inserir País</button>
+      <button class="btn-save" onclick="salvarInformacoes()">Salvar Informações</button>
+    </div>
+  </header>
+
+  <main class="grid-container" id="gridPaises"></main>
+
+  <!-- Modal para Inserção -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2>Inserir Novo País</h2>
+      <form id="formPais" onsubmit="adicionarPais(event)">
+        <div class="form-group">
+          <label for="nome">Nome do País:</label>
+          <input type="text" id="nome" required>
+        </div>
+        <div class="form-group">
+          <label for="populacao">População:</label>
+          <input type="number" id="populacao" required min="1">
+        </div>
+        <div class="form-group">
+          <label for="bandeira">URL da Bandeira:</label>
+          <input type="url" id="bandeira" placeholder="https://..." required>
+        </div>
+        <div class="form-group">
+          <label for="idiomas">Idiomas (separados por vírgula):</label>
+          <input type="text" id="idiomas" placeholder="Ex: Espanhol, Guaraní" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+          <button type="submit">Adicionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let paisesData = [];
+
+    // Carrega o JSON inicial ao abrir a página
+    async function carregarPaises() {
+      try {
+        const response = await fetch('paises.json');
+        paisesData = await response.json();
+        renderizarCards();
+      } catch (error) {
+        console.error('Erro ao carregar o JSON:', error);
+      }
+    }
+
+    // Renderiza os cards na interface
+    function renderizarCards() {
+      const container = document.getElementById('gridPaises');
+      container.innerHTML = '';
+
+      paisesData.forEach(pais => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${pais.bandeira}" alt="Bandeira do ${pais.nome}">
+          <div class="card-body">
+            <h3 class="card-title">${pais.nome}</h3>
+            <p class="card-text"><strong>População:</strong> ${pais.populacao.toLocaleString('pt-BR')}</p>
+            <p class="card-text"><strong>Idioma(s):</strong> ${pais.idiomas.join(', ')}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Controles do Modal
+    function abrirModal() {
+      document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    function fecharModal() {
+      document.getElementById('modalOverlay').style.display = 'none';
+      document.getElementById('formPais').reset();
+    }
+
+    // Adiciona o novo país ao estado local e re-renderiza
+    function adicionarPais(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const populacao = parseInt(document.getElementById('populacao').value, 10);
+      const bandeira = document.getElementById('bandeira').value.trim();
+      const idiomasInput = document.getElementById('idiomas').value;
+      const idiomas = idiomasInput.split(',').map(item => item.trim()).filter(item => item !== '');
+
+      const novoPais = {
+        id: Date.now(),
+        nome,
+        populacao,
+        bandeira,
+        idiomas
+      };
+
+      paisesData.push(novoPais);
+      renderizarCards();
+      fecharModal();
+    }
+
+    // Exporta o JSON atualizado fazendo o download do arquivo
+    function salvarInformacoes() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(paisesData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "paises_atualizado.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', carregarPaises);
+  </script>
+</body>
+</html>

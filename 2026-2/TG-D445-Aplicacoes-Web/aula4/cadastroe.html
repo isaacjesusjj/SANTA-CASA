@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Estados</title>
+    <link rel="stylesheet" href="cadestado.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Listbox -->
+        <div class="painel-esquerdo">
+            <select id="selectEstados" size="6">
+                <!-- Opções inseridas dinamicamente via JS -->
+            </select>
+        </div>
+
+        <!-- Meio: Botões (Azul e Verde abaixo) -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+            <button id="btnNovoEstado" class="btn-verde">Novo Estado</button>
+        </div>
+
+        <!-- Direita: Quadros de Informações -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Capital</strong>
+                <div id="divCapital">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Área</strong>
+                <div id="divArea">-</div>
+            </div>
+            <div class="card-info">
+                <strong>População</strong>
+                <div id="divPopulacao">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Bandeira</strong>
+                <div id="divBandeira">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Formulário de Cadastro -->
+    <div id="modalCadastro" class="modal">
+        <div class="modal-conteudo">
+            <h2>Cadastrar Novo Estado</h2>
+            <form id="formEstado">
+                <div class="campo">
+                    <label for="inputSigla">Sigla (UF):</label>
+                    <input type="text" id="inputSigla" maxlength="2" required placeholder="Ex: SP">
+                </div>
+                <div class="campo">
+                    <label for="inputCapital">Capital:</label>
+                    <input type="text" id="inputCapital" required placeholder="Ex: São Paulo">
+                </div>
+                <div class="campo">
+                    <label for="inputArea">Área:</label>
+                    <input type="text" id="inputArea" required placeholder="Ex: 248.219,5 km²">
+                </div>
+                <div class="campo">
+                    <label for="inputPopulacao">População:</label>
+                    <input type="text" id="inputPopulacao" required placeholder="Ex: 44.420.459 hab.">
+                </div>
+                <div class="campo">
+                    <label for="inputBandeira">URL da Bandeira:</label>
+                    <input type="url" id="inputBandeira" required placeholder="https://...">
+                </div>
+                <div class="modal-botoes">
+                    <button type="submit" class="btn-verde">Salvar</button>
+                    <button type="button" id="btnCancelar" class="btn-cancelar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="cadestado.js"></script>
+</body>
+</html>

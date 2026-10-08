@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Saudação Personalizada</title>
+</head>
+<body>
+
+  <input type="text" id="campoNome" placeholder="Digite seu nome">
+  <button id="btnSaudar">Saudar</button>
+  <p id="mensagem"></p>
+
+  <script>
+    // 2. Função que constrói e retorna a string formatada
+    function construirSaudacao(nome) {
+      return `Olá, ${nome}! Seja bem-vindo ao curso de Web!`;
+    }
+
+    // 3. Função principal que captura o valor e exibe no parágrafo
+    function executarSaudacao() {
+      const nomeDigitado = document.getElementById('campoNome').value;
+      const textoSaudacao = construirSaudacao(nomeDigitado);
+      document.getElementById('mensagem').textContent = textoSaudacao;
+    }
+
+    // Conecta o clique do botão à função principal
+    document.getElementById('btnSaudar').addEventListener('click', executarSaudacao);
+  </script>
+
+</body>
+</html>

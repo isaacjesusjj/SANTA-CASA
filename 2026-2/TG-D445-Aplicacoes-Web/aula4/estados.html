@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)https://ead.fcmsantacasasp.edu.br/ava/pluginfile.php/459949/mod_resource/content/1/Exemplo5.1.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estados do Sudeste do Brasil</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Lado Esquerdo - Listbox */
+        .painel-esquerdo select {
+            width: 120px;
+            height: 180px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Meio - Botão */
+        .painel-meio button {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .painel-meio button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Lado Direito - Quadro Divs */
+        .painel-direito {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 250px;
+        }
+
+        .card-info {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .card-info strong {
+            display: block;
+            color: #555;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .card-info div {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .card-info img {
+            max-width: 80px;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Listbox com as siglas -->
+        <div class="painel-esquerdo">
+            <select id="selectEstados" size="4">
+                <option value="0" selected="">ES</option>
+                <option value="1">MG</option>
+                <option value="2">RJ</option>
+                <option value="3">SP</option>
+            </select>
+        </div>
+
+        <!-- Meio: Botão -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+        </div>
+
+        <!-- Direita: Quatro divs/quadros de informações -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Capital</strong>
+                <div id="divCapital">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Área</strong>
+                <div id="divArea">-</div>
+            </div>
+            <div class="card-info">
+                <strong>População</strong>
+                <div id="divPopulacao">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Bandeira</strong>
+                <div id="divBandeira">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 5 Arrays paralelos com informações da Wikipédia
+        const siglas    = ["ES", "MG", "RJ", "SP"];
+        const capitais  = ["Vitória", "Belo Horizonte", "Rio de Janeiro", "São Paulo"];
+        const areas     = ["46.074,447 km²", "586.521,121 km²", "43.750,423 km²", "248.219,481 km²"];
+        const populacoes= ["3.833.712 hab.", "20.538.718 hab.", "16.054.524 hab.", "44.411.238 hab."];
+        const bandeiras = [
+            "https://upload.wikimedia.org/wikipedia/commons/4/43/Bandeira_do_Esp%C3%ADrito_Santo.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/f/f4/Bandeira_de_Minas_Gerais.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/7/73/Bandeira_do_estado_do_Rio_de_Janeiro.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/2/2b/Bandeira_do_estado_de_S%C3%A3o_Paulo.svg"
+        ];
+
+        // Mapeamento dos elementos da DOM
+        const selectEstados = document.getElementById("selectEstados");
+        const btnDetalhes   = document.getElementById("btnDetalhes");
+        const divCapital    = document.getElementById("divCapital");
+        const divArea       = document.getElementById("divArea");
+        const divPopulacao  = document.getElementById("divPopulacao");
+        const divBandeira   = document.getElementById("divBandeira");
+
+        // EventListener para o evento onclick do botão
+        btnDetalhes.addEventListener("click", function() {
+            // Pega o índice selecionado na listbox (0 a 3)
+            const index = selectEstados.value;
+
+            // Se houver seleção válida
+            if (index !== "") {
+                // Preenche as divs usando o mesmo índice nos arrays paralelos
+                divCapital.textContent = capitais[index];
+                divArea.textContent = areas[index];
+                divPopulacao.textContent = populacoes[index];
+                
+                // Exibe a imagem da bandeira no quarto quadro
+                divBandeira.innerHTML = `<img src="${bandeiras[index]}" alt="Bandeira de ${siglas[index]}">`;
+            }
+        });
+    </script>
+
+
+</body></html>

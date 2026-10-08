@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média</title>
+<style>
+body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      padding: 8px;
+      margin-right: 10px;
+      width: 100px;
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+    #resultadoCalculo {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+
+</style>
+<body>
+    <h2>Calculadora de Média</h2>
+
+<input type="number" id="nota1" placeholder="Nota 1" step="0.1">
+<input type="number" id="nota2" placeholder="Nota 2" step="0.1">
+
+<button id="btnCalcular">Calcular média</button>
+
+<p id="resultadoCalculo"></p>
+
+<script>
+    function calcularMedia(n1, n2){
+        return (n1 + n2) /2;
+    }
+
+    document.getElementById('btnCalcular').addEventListener('click', function(){
+        const valor1 = Number(document.getElementById('nota1').value);
+      const valor2 = Number(document.getElementById('nota2').value);
+
+      const media = calcularMedia(valor1, valor2);
+
+      const elementoResultado = document.getElementById('resultadoCalculo');
+
+      if (media >= 7.0) {
+        elementoResultado.textContent = `Média: ${media.toFixed(1)} - Aprovado`;
+        elementoResultado.style.color = "green"; // Cor verde para aprovação
+      } else {
+        elementoResultado.textContent = `Média: ${media.toFixed(1)} - Recuperação`;
+        elementoResultado.style.color = "red"; // Cor vermelha para recuperação
+      }
+    });
+  </script>
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Produtos e Estoque</title>
+  <link rel="stylesheet" href="estoque.css">
+</head>
+<body>
+
+  <header>
+    <h1>Catálogo de Produtos</h1>
+    <div class="btn-group">
+      <button onclick="abrirModal()">Incluir Produto</button>
+      <button class="btn-save" onclick="salvarEstoque()">Salvar Estoque</button>
+    </div>
+  </header>
+
+  <main class="grid-container" id="gridProdutos"></main>
+
+  <!-- Modal para Inserção de Produto -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2>Incluir Novo Produto</h2>
+      <form id="formProduto" onsubmit="incluirProduto(event)">
+        <div class="form-group">
+          <label for="nome">Nome do Produto:</label>
+          <input type="text" id="nome" required placeholder="Ex: Café Torrado 500g">
+        </div>
+        
+        <div class="form-group">
+          <label for="foto">URL da Foto:</label>
+          <input type="url" id="foto" required placeholder="https://...">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="precoCompra">Preço Compra (R$):</label>
+            <input type="number" id="precoCompra" step="0.01" min="0" required placeholder="0.00">
+          </div>
+          <div class="form-group">
+            <label for="precoVenda">Preço Venda (R$):</label>
+            <input type="number" id="precoVenda" step="0.01" min="0" required placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantidadeEstoque">Estoque Inicial:</label>
+            <input type="number" id="quantidadeEstoque" min="0" required placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="unidade">Unidade:</label>
+            <input type="text" id="unidade" required placeholder="Ex: Pacote de 500g">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+          <button type="submit">Salvar Produto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="estoque.json"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #e9ecef; }
+    .box { background: white; padding: 2rem; border-radius: 8px; text-align: center; min-width: 200px; }
+    .numero { font-size: 4rem; font-weight: bold; color: #333; margin: 20px 0; }
+    .botoes { display: flex; gap: 10px; justify-content: center; }
+    button { padding: 10px 18px; font-size: 1.2rem; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Contador</h2>
+    <div id="valor" class="numero">0</div>
+    <div class="botoes">
+      <button id="btn-subtrair">-</button>
+      <button id="btn-zerar">Zerar</button>
+      <button id="btn-somar">+</button>
+    </div>
+  </div>
+
+  <script>
+ // 1. Declare uma variável JS chamada contador iniciando em 0.
+let contador = 0;
+
+// Selecionando o visor e os botões
+const valorDisplay = document.querySelector('#valor');
+const btnSomar = document.querySelector('#btn-somar');
+const btnSubtrair = document.querySelector('#btn-subtrair');
+const btnZerar = document.querySelector('#btn-zerar');
+
+// 2. Programe o botão + para incrementar o valor e atualizar a tela.
+btnSomar.addEventListener('click', () => {
+  contador++; // O mesmo que contador = contador + 1
+  valorDisplay.textContent = contador;
+});
+
+// 3. Programe o botão - para decrementar, não permitindo menor que zero.
+btnSubtrair.addEventListener('click', () => {
+  if (contador > 0) {
+    contador--; // O mesmo que contador = contador - 1
+    valorDisplay.textContent = contador;
+  }
+});
+
+// 4. Programe o botão Zerar para resetar o valor para 0.
+btnZerar.addEventListener('click', () => {
+  contador = 0;
+  valorDisplay.textContent = contador;
+});
+  </script>
+</body>
+</html>

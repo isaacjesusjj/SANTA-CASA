@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "nome": "Brasil",
+    "populacao": 203062512,
+    "bandeira": "https://flagcdn.com/w320/br.png",
+    "idiomas": ["Português"]
+  },
+  {
+    "id": 2,
+    "nome": "Argentina",
+    "populacao": 46044703,
+    "bandeira": "https://flagcdn.com/w320/ar.png",
+    "idiomas": ["Espanhol"]
+  },
+  {
+    "id": 3,
+    "nome": "México",
+    "populacao": 126705138,
+    "bandeira": "https://flagcdn.com/w320/mx.png",
+    "idiomas": ["Espanhol"]
+  },
+  {
+    "id": 4,
+    "nome": "Chile",
+    "populacao": 19493184,
+    "bandeira": "https://flagcdn.com/w320/cl.png",
+    "idiomas": ["Espanhol"]
+  },
+  {
+    "id": 5,
+    "nome": "Colômbia",
+    "populacao": 51516562,
+    "bandeira": "https://flagcdn.com/w320/co.png",
+    "idiomas": ["Espanhol"]
+  },
+  {
+    "id": 6,
+    "nome": "Peru",
+    "populacao": 33715471,
+    "bandeira": "https://flagcdn.com/w320/pe.png",
+    "idiomas": ["Espanhol", "Quechua", "Aimará"]
+  },
+  {
+    "id": 7,
+    "nome": "Uruguai",
+    "populacao": 3422794,
+    "bandeira": "https://flagcdn.com/w320/uy.png",
+    "idiomas": ["Espanhol"]
+  }
+]
