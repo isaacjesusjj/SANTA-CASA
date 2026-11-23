@@ -1,0 +1,89 @@
+{
+  "calendario_vacinacao_infantil_sus": [
+    {
+      "vacina": "BCG",
+      "idade": "0 maanden (bij de geboorte - eenmalige dosis)",
+      "para_que_serve": "Voorkomt de ernstige vormen van tuberculose (miliaire tuberculose en tuberculeuze hersenvliesontsteking)."
+    },
+    {
+      "vacina": "Hepatitis B",
+      "idade": "0 maanden (bij de geboorte)",
+      "para_que_serve": "Voorkomt hepatitis B."
+    },
+    {
+      "vacina": "Penta (DKT + Hib + Hepatitis B)",
+      "idade": "2 maanden (1e dosis), 4 maanden (2e dosis), 6 maanden (3e dosis)",
+      "para_que_serve": "Voorkomt difterie, tetanus, kinkhoest, hepatitis B en ernstige infecties veroorzaakt door Haemophilus influenzae type b (zoals hersenvliesontsteking en longontsteking)."
+    },
+    {
+      "vacina": "IPV (geïnactiveerd poliovaccin)",
+      "idade": "2 maanden (1e dosis), 4 maanden (2e dosis), 6 maanden (3e dosis), 15 maanden (herhalingsdosis)",
+      "para_que_serve": "Voorkomt poliomyelitis (kinderverlamming)."
+    },
+    {
+      "vacina": "Pneumokokken 10-valent (PCV10)",
+      "idade": "2 maanden (1e dosis), 4 maanden (2e dosis), 12 maanden (herhalingsdosis)",
+      "para_que_serve": "Voorkomt invasieve ziekten veroorzaakt door pneumokokken, zoals longontsteking, hersenvliesontsteking en acute middenoorontsteking."
+    },
+    {
+      "vacina": "Humaan rotavirus (HRV)",
+      "idade": "2 maanden (1e dosis), 4 maanden (2e dosis)",
+      "para_que_serve": "Voorkomt ernstige diarree en uitdroging veroorzaakt door het rotavirus."
+    },
+    {
+      "vacina": "Meningokokken C (geconjugeerd)",
+      "idade": "3 maanden (1e dosis), 5 maanden (2e dosis), 12 maanden (herhalingsdosis)",
+      "para_que_serve": "Voorkomt invasieve ziekten veroorzaakt door de bacterie Neisseria meningitidis van serogroep C (hersenvliesontsteking en meningokokkensepsis)."
+    },
+    {
+      "vacina": "Covid-19",
+      "idade": "6 maanden (1e dosis), 7 maanden (2e dosis), 9 maanden (3e dosis - afhankelijk van de fabrikant)",
+      "para_que_serve": "Voorkomt ernstige ziekte, ziekenhuisopnames en sterfgevallen veroorzaakt door het SARS-CoV-2-virus."
+    },
+    {
+      "vacina": "Influenza (griep)",
+      "idade": "6 maanden (vanaf deze leeftijd jaarlijks - twee doses bij de eerste vaccinatie tot achtjarige leeftijd)",
+      "para_que_serve": "Voorkomt complicaties, ziekenhuisopnames en sterfgevallen als gevolg van infecties met influenzavirussen."
+    },
+    {
+      "vacina": "Gele koorts",
+      "idade": "9 maanden (1e dosis), 4 jaar (herhalingsdosis)",
+      "para_que_serve": "Voorkomt gele koorts."
+    },
+    {
+      "vacina": "BMR (bof - mazelen - rodehond)",
+      "idade": "12 maanden (1e dosis)",
+      "para_que_serve": "Voorkomt mazelen, bof en rodehond."
+    },
+    {
+      "vacina": "BMRV (bof - mazelen - rodehond - waterpokken)",
+      "idade": "15 maanden (eenmalige dosis - na de 1e dosis BMR)",
+      "para_que_serve": "Voorkomt mazelen, bof, rodehond en waterpokken (varicella)."
+    },
+    {
+      "vacina": "DKT (difterie - kinkhoest - tetanus)",
+      "idade": "15 maanden (1e herhalingsdosis), 4 jaar (2e herhalingsdosis)",
+      "para_que_serve": "Versterkt de bescherming tegen difterie, tetanus en kinkhoest."
+    },
+    {
+      "vacina": "Hepatitis A",
+      "idade": "15 maanden (eenmalige dosis)",
+      "para_que_serve": "Voorkomt hepatitis A."
+    },
+    {
+      "vacina": "Waterpokken (monovalent)",
+      "idade": "4 jaar (herhalingsdosis)",
+      "para_que_serve": "Versterkt de bescherming tegen waterpokken (varicella)."
+    },
+    {
+      "vacina": "HPV quadrivalent",
+      "idade": "9 tot 14 jaar (eenmalige dosis)",
+      "para_que_serve": "Voorkomt aanhoudende infecties en voorstadia van kanker veroorzaakt door de typen 6, 11, 16 en 18 van het humaan papillomavirus (HPV)."
+    },
+    {
+      "vacina": "Meningokokken ACWY (geconjugeerd)",
+      "idade": "11 tot 14 jaar (eenmalige dosis of herhalingsdosis)",
+      "para_que_serve": "Voorkomt hersenvliesontsteking en gegeneraliseerde infecties veroorzaakt door de serogroepen A, C, W en Y van de bacterie Neisseria meningitidis."
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "crianca": {
+    "nome": "Sanne de Vries",
+    "data_nascimento": "2026-08-12",
+    "idade_anos": 0,
+    "idade_meses": 3,
+    "bsn": "123456782",
+    "numero_sus": "201234567890123",
+    "responsavel_1": "Pieter de Vries",
+    "responsavel_2": "Emma Bakker"
+  },
+  "vacinas": [
+    {
+      "vacina": "BCG",
+      "dose": 1,
+      "idade": "0 maanden (bij de geboorte - eenmalige dosis)",
+      "tomada": true,
+      "atrasada": false,
+      "data_aplicacao": "2026-08-12",
+      "numero_lote": "BCG2026A",
+      "unidade_aplicadora": "GGD Amsterdam",
+      "responsavel_aplicacao": "Anna Jansen"
+    },
+    {
+      "vacina": "Hepatitis B",
+      "dose": 1,
+      "idade": "0 maanden (bij de geboorte)",
+      "tomada": true,
+      "atrasada": false,
+      "data_aplicacao": "2026-08-13",
+      "numero_lote": "HB7731",
+      "unidade_aplicadora": "Consultatiebureau Utrecht",
+      "responsavel_aplicacao": "Lars Visser"
+    },
+    {
+      "vacina": "Penta (DKT + Hib + Hepatitis B)",
+      "dose": 1,
+      "idade": "2 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": true
+    },
+    {
+      "vacina": "Penta (DKT + Hib + Hepatitis B)",
+      "dose": 2,
+      "idade": "4 maanden (2e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Penta (DKT + Hib + Hepatitis B)",
+      "dose": 3,
+      "idade": "6 maanden (3e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "IPV (geïnactiveerd poliovaccin)",
+      "dose": 1,
+      "idade": "2 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": true
+    },
+    {
+      "vacina": "IPV (geïnactiveerd poliovaccin)",
+      "dose": 2,
+      "idade": "4 maanden (2e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "IPV (geïnactiveerd poliovaccin)",
+      "dose": 3,
+      "idade": "6 maanden (3e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "IPV (geïnactiveerd poliovaccin)",
+      "dose": 4,
+      "idade": "15 maanden (herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Pneumokokken 10-valent (PCV10)",
+      "dose": 1,
+      "idade": "2 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": true
+    },
+    {
+      "vacina": "Pneumokokken 10-valent (PCV10)",
+      "dose": 2,
+      "idade": "4 maanden (2e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Pneumokokken 10-valent (PCV10)",
+      "dose": 3,
+      "idade": "12 maanden (herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Humaan rotavirus (HRV)",
+      "dose": 1,
+      "idade": "2 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": true
+    },
+    {
+      "vacina": "Humaan rotavirus (HRV)",
+      "dose": 2,
+      "idade": "4 maanden (2e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Meningokokken C (geconjugeerd)",
+      "dose": 1,
+      "idade": "3 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Meningokokken C (geconjugeerd)",
+      "dose": 2,
+      "idade": "5 maanden (2e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Meningokokken C (geconjugeerd)",
+      "dose": 3,
+      "idade": "12 maanden (herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Covid-19",
+      "dose": 1,
+      "idade": "6 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Covid-19",
+      "dose": 2,
+      "idade": "7 maanden (2e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Covid-19",
+      "dose": 3,
+      "idade": "9 maanden (3e dosis - afhankelijk van de fabrikant)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Influenza (griep)",
+      "dose": 1,
+      "idade": "6 maanden (vanaf deze leeftijd jaarlijks - twee doses bij de eerste vaccinatie tot achtjarige leeftijd)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Gele koorts",
+      "dose": 1,
+      "idade": "9 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Gele koorts",
+      "dose": 2,
+      "idade": "4 jaar (herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "BMR (bof - mazelen - rodehond)",
+      "dose": 1,
+      "idade": "12 maanden (1e dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "BMRV (bof - mazelen - rodehond - waterpokken)",
+      "dose": 1,
+      "idade": "15 maanden (eenmalige dosis - na de 1e dosis BMR)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "DKT (difterie - kinkhoest - tetanus)",
+      "dose": 1,
+      "idade": "15 maanden (1e herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "DKT (difterie - kinkhoest - tetanus)",
+      "dose": 2,
+      "idade": "4 jaar (2e herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Hepatitis A",
+      "dose": 1,
+      "idade": "15 maanden (eenmalige dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Waterpokken (monovalent)",
+      "dose": 1,
+      "idade": "4 jaar (herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "HPV quadrivalent",
+      "dose": 1,
+      "idade": "9 tot 14 jaar (eenmalige dosis)",
+      "tomada": false,
+      "atrasada": false
+    },
+    {
+      "vacina": "Meningokokken ACWY (geconjugeerd)",
+      "dose": 1,
+      "idade": "11 tot 14 jaar (eenmalige dosis of herhalingsdosis)",
+      "tomada": false,
+      "atrasada": false
+    }
+  ]
+}

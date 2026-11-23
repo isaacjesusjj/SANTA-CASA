@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Digitaal Vaccinatieboekje voor Kinderen</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="jan-druppeltje.svg">
+</head>
+<body>
+
+  <!-- Cabeçalho com Jan Druppeltje, Título e Bandeira da Holanda -->
+  <header class="cabecalho">
+    <img
+      src="jan-druppeltje.svg"
+      alt="Jan Druppeltje - Mascotte van de SUS-vaccinatie"
+      class="ze-gotinha"
+    >
+
+    <div class="titulo-area">
+      <h1>DIGITAAL VACCINATIEBOEKJE VOOR KINDEREN</h1>
+      <p>Universeel Gezondheidssysteem (SUS) - Nederland</p>
+    </div>
+
+    <img
+      src="vlag-nederland.svg"
+      alt="Vlag van Nederland"
+      class="bandeira"
+    >
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Seção 1: Dados da Criança -->
+    <form id="form-crianca">
+    <section class="caixa">
+      <h2>Gegevens van het kind en de ouders/verzorgers</h2>
+      <p class="aviso">* Verplichte velden</p>
+  
+        <div class="campo">
+          <label for="nomeCrianca">Naam van het kind *</label>
+          <input type="text" id="nomeCrianca" placeholder="Vul de volledige naam in">
+        </div>
+
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="dataNascimento">Geboortedatum *</label>
+            <input type="date" id="dataNascimento">
+          </div>
+
+          <div class="campo">
+            <label for="idadeAnos">Leeftijd (jaren)</label>
+            <input type="text" id="idadeAnos" readonly placeholder="Automatisch">
+          </div>
+
+          <div class="campo">
+            <label for="idadeMeses">Leeftijd (maanden)</label>
+            <input type="text" id="idadeMeses" readonly placeholder="Automatisch">
+          </div>
+        </div>
+
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="cpfCrianca">BSN van het kind *</label>
+            <input type="text" id="cpfCrianca" maxlength="14" placeholder="Vul de 9 cijfers van het BSN in">
+          </div>
+
+          <div class="campo">
+            <label for="numeroSus">SUS-kaartnummer *</label>
+            <input type="text" id="numeroSus" maxlength="15" placeholder="Vul de 15 cijfers van de SUS-kaart in">
+          </div>
+        </div>
+
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="responsavel1">Ouder/verzorger 1 (verplicht) *</label>
+            <input type="text" id="responsavel1" placeholder="Naam van de eerste ouder/verzorger">
+          </div>
+
+          <div class="campo">
+            <label for="responsavel2">Ouder/verzorger 2 (optioneel)</label>
+            <input type="text" id="responsavel2" placeholder="Naam van de tweede ouder/verzorger">
+          </div>
+        </div>
+
+    </section>
+
+    <!-- Seção 2: Cards de Vacinas -->
+    <section class="caixa">
+      <h2>Vaccinatieschema van het SUS</h2>
+      <p>Klik op een kaart om te zien waarvoor het vaccin dient en om de toediening te registreren.</p>
+
+      <div id="lista-vacinas" class="grade-vacinas"></div>
+      
+    </section>
+
+    <section class="caixa">
+      <h2>Mijn offline vaccinatieboekje</h2>
+      <p>Klik hier nadat de gegevens van het kind en de vaccins zijn ingevuld om het vaccinatieboekje in een lokaal bestand op te slaan.</p>
+      <button type="submit" class="botao-salvar">Vaccinatieboekje opslaan</button>
+      <p id="mensagem-cadastro" class="mensagem-sucesso"></p>
+    </section>
+    </form>
+  </main>
+
+  <!-- Janela (Modal) que abre ao clicar em um card -->
+  <div id="janela-detalhes" class="fundo-janela escondido">
+    <div class="conteudo-janela">
+      <h3 id="janela-titulo">Naam van het vaccin</h3>
+      <p><strong>Dosis:</strong> <span id="janela-dose"></span></p>
+      <p><strong>Wanneer toedienen:</strong> <span id="janela-idade"></span></p>
+      <p><strong>Waarvoor dient het:</strong> <span id="janela-descricao"></span></p>
+
+      <div class="area-check">
+        <input type="checkbox" id="check-tomada">
+        <label for="check-tomada">Vaccin al toegediend</label>
+      </div>
+
+      <!-- Campos extras que aparecem quando "Vacina já aplicada" é marcado -->
+      <div id="campos-aplicacao" class="campos-extras escondido">
+        <div class="campo">
+          <label for="dataAplicacao">Datum van toediening *</label>
+          <input type="date" id="dataAplicacao">
+        </div>
+
+        <div class="campo">
+          <label for="numeroLote">Batchnummer *</label>
+          <input type="text" id="numeroLote" placeholder="Bijv.: AB1234">
+        </div>
+
+        <div class="campo">
+          <label for="unidadeAplicadora">Vaccinatielocatie *</label>
+          <input type="text" id="unidadeAplicadora" placeholder="Bijv.: GGD Amsterdam">
+        </div>
+
+        <div class="campo">
+          <label for="responsavelAplicacao">Toegediend door *</label>
+          <input type="text" id="responsavelAplicacao" placeholder="Naam van de zorgverlener">
+        </div>
+      </div>
+
+      <div class="botoes-janela">
+        <button type="button" id="btn-confirmar" class="botao-salvar">Bevestigen</button>
+        <button type="button" id="btn-fechar" class="botao-fechar">Sluiten</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

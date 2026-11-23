@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 95" role="img" aria-label="Jan Druppeltje">
+  <!-- Jan Druppeltje: mascote holandês da vacinação (gota laranja, cor nacional da Holanda) -->
+  <!-- Pernas e pés -->
+  <path d="M35 76 V87 M50 76 V87" stroke="#c85f00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <ellipse cx="32" cy="89" rx="7" ry="3.5" fill="#21468B"/>
+  <ellipse cx="53" cy="89" rx="7" ry="3.5" fill="#21468B"/>
+  <!-- Braços (o direito acenando) -->
+  <path d="M23 56 Q12 60 11 70" stroke="#c85f00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M62 54 Q74 48 73 36" stroke="#c85f00" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="11" cy="71" r="4" fill="#FF7F00" stroke="#c85f00" stroke-width="1.5"/>
+  <circle cx="73" cy="35" r="4" fill="#FF7F00" stroke="#c85f00" stroke-width="1.5"/>
+  <!-- Corpo em forma de gota -->
+  <path d="M42.5 5 C36 20 19 38 19 56 A23.5 23.5 0 0 0 66 56 C66 38 49 20 42.5 5 Z" fill="#FF7F00" stroke="#c85f00" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Brilho -->
+  <path d="M30 40 Q26 48 26 56" stroke="#ffd9b0" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Rosto -->
+  <ellipse cx="35" cy="48" rx="4.5" ry="6" fill="#ffffff"/>
+  <ellipse cx="50" cy="48" rx="4.5" ry="6" fill="#ffffff"/>
+  <circle cx="36" cy="49.5" r="2.4" fill="#1a1a1a"/>
+  <circle cx="51" cy="49.5" r="2.4" fill="#1a1a1a"/>
+  <path d="M33 59 Q42.5 68 52 59" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <!-- Faixa com as cores da bandeira da Holanda -->
+  <rect x="33" y="68.5" width="19" height="2.4" fill="#AE1C28"/>
+  <rect x="33" y="70.9" width="19" height="2.4" fill="#ffffff"/>
+  <rect x="33" y="73.3" width="19" height="2.4" fill="#21468B"/>
+</svg>
