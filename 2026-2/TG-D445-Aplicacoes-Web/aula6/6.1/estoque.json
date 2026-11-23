@@ -1,0 +1,38 @@
+[
+  {
+    "id": 101,
+    "nome": "Creme Dental Dentes Brancos",
+    "foto": "https://m.media-amazon.com/images/I/61Z63rpfqXL.jpg",
+    "precoCompra": 2.50,
+    "precoVenda": 4.99,
+    "quantidadeEstoque": 120,
+    "unidade": "Tubo de 90g"
+  },
+  {
+    "id": 102,
+    "nome": "Arroz Integral Tipo 1",
+    "foto": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&q=80",
+    "precoCompra": 18.20,
+    "precoVenda": 24.90,
+    "quantidadeEstoque": 45,
+    "unidade": "Pacote de 5kg"
+  },
+  {
+    "id": 103,
+    "nome": "Azeite de Oliva Extra Virgem",
+    "foto": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80",
+    "precoCompra": 28.00,
+    "precoVenda": 39.90,
+    "quantidadeEstoque": 30,
+    "unidade": "Garrafa de 500ml"
+  },
+  {
+    "id": 104,
+    "nome": "Café Torrado e Moído Tradicional",
+    "foto": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80",
+    "precoCompra": 11.50,
+    "precoVenda": 16.80,
+    "quantidadeEstoque": 85,
+    "unidade": "Pacote de 500g"
+  }
+]

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Somatório e Produtório</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    input {
+      width: 80px;
+      padding: 10px;
+      margin: 5px;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #res {
+      background-color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+
+<script>
+
+  function soma() {
+    const num1 = parseInt(valor1.value);
+    const num2 = parseInt(valor2.value);
+    const num3 = parseInt(valor3.value);
+
+    const resultado = num1 + num2 + num3;
+
+    res.value = resultado;
+  }
+
+  function produto() {
+    const num1 = parseInt(valor1.value);
+    const num2 = parseInt(valor2.value);
+    const num3 = parseInt(valor3.value);
+
+    const resultado = num1 * num2 * num3;
+
+    res.value = resultado;
+  }
+
+</script>
+
+<div class="container">
+
+  <h2>Somatório e Produtório</h2>
+
+  <input type="number" value="1" id="valor1">
+  <input type="number" value="2" id="valor2">
+  <input type="number" value="3" id="valor3">
+
+  <br>
+
+  <button onclick="soma()">Somatório</button>
+
+  <button onclick="produto()">Produtório</button>
+
+  <br>
+
+  <input type="number" id="res" readonly>
+
+</div>
+
+</body>
+</html>

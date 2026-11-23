@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque - Supermercado</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --success: #16a34a;
+      --warning: #d97706;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    button.btn-warning {
+      background-color: var(--warning);
+    }
+
+    button.btn-add {
+      background-color: #7c3aed;
+    }
+
+    button.btn-success {
+      background-color: var(--success);
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      margin: 0 0 5px 0;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .badge-unidade {
+      align-self: flex-start;
+      background-color: #e0e7ff;
+      color: #3730a3;
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .card-info {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .card-control {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .card-control label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .card-control input[type="number"] {
+      padding: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+    .modal { background: #fff; padding: 25px; border-radius: 8px; width: 360px; max-width: 92%; box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
+    .modal h2 { margin: 0 0 15px; color: var(--primary); }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #334155; margin-bottom: 4px; }
+    .form-group input { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.95rem; box-sizing: border-box; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
+    button.btn-cancel { background-color: #dc2626; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Controle de Estoque</h1>
+    <div class="btn-group">
+      <button onclick="carregarEstoque()">Carregar estoque</button>
+      <button class="btn-add" onclick="abrirModal()">Incluir produto</button>
+      <button class="btn-warning" onclick="atualizarEstoque()">Atualizar estoque</button>
+      <button class="btn-success" onclick="salvarEstoque()">Salvar estoque</button>
+    </div>
+  </header>
+
+  <main class="grid-container" id="gridProdutos"></main>
+
+  <!-- Modal para inclusão de produto -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2>Incluir Novo Produto</h2>
+      <form id="formProduto" onsubmit="incluirProduto(event)">
+        <div class="form-group">
+          <label for="nome">Nome do produto:</label>
+          <input type="text" id="nome" required>
+        </div>
+        <div class="form-group">
+          <label for="foto">URL da foto:</label>
+          <input type="url" id="foto" placeholder="https://..." required>
+        </div>
+        <div class="form-group">
+          <label for="precoCompra">Preço de compra (R$):</label>
+          <input type="number" id="precoCompra" step="0.01" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="precoVenda">Preço de venda (R$):</label>
+          <input type="number" id="precoVenda" step="0.01" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="quantidadeEstoque">Quantidade em estoque:</label>
+          <input type="number" id="quantidadeEstoque" min="0" step="1" required>
+        </div>
+        <div class="form-group">
+          <label for="unidade">Unidade:</label>
+          <input type="text" id="unidade" placeholder="Ex: Pacote de 1kg" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+          <button type="submit">Incluir</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let produtosData = [];
+
+    // Carrega o arquivo JSON do estoque
+    async function carregarEstoque() {
+      try {
+        const response = await fetch('estoque.json');
+        produtosData = await response.json();
+        renderizarCards();
+      } catch (error) {
+        console.error('Erro ao carregar o estoque:', error);
+        alert('Não foi possível carregar o arquivo estoque.json.');
+      }
+    }
+
+    // Renderiza os cards de produtos na tela
+    function renderizarCards() {
+      const container = document.getElementById('gridProdutos');
+      container.innerHTML = '';
+
+      produtosData.forEach(produto => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${produto.foto}" alt="${produto.nome}">
+          <div class="card-body">
+            <span class="badge-unidade">${produto.unidade}</span>
+            <h3 class="card-title">${produto.nome}</h3>
+            <div class="card-info"><strong>Preço de Compra:</strong> R$ ${produto.precoCompra.toFixed(2)}</div>
+            <div class="card-info"><strong>Preço de Venda:</strong> R$ ${produto.precoVenda.toFixed(2)}</div>
+            <div class="card-info"><strong>Estoque Atual:</strong> ${produto.quantidadeEstoque}</div>
+            
+            <div class="card-control">
+              <label for="mov-${produto.id}">Entrada / Saída (negativo):</label>
+              <input type="number" id="mov-${produto.id}" value="0" step="1" placeholder="Ex: 5 ou -3">
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // ---- Exercício 6.1.a: incluir produto ----
+    function abrirModal() {
+      document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    function fecharModal() {
+      document.getElementById('modalOverlay').style.display = 'none';
+      document.getElementById('formProduto').reset();
+    }
+
+    function incluirProduto(event) {
+      event.preventDefault();
+
+      // Novo id = maior id existente + 1 (começa em 101 se a lista estiver vazia)
+      const novoId = produtosData.length > 0
+        ? Math.max(...produtosData.map(p => p.id)) + 1
+        : 101;
+
+      const novoProduto = {
+        id: novoId,
+        nome: document.getElementById('nome').value.trim(),
+        foto: document.getElementById('foto').value.trim(),
+        precoCompra: parseFloat(document.getElementById('precoCompra').value),
+        precoVenda: parseFloat(document.getElementById('precoVenda').value),
+        quantidadeEstoque: parseInt(document.getElementById('quantidadeEstoque').value, 10),
+        unidade: document.getElementById('unidade').value.trim()
+      };
+
+      produtosData.push(novoProduto);
+      renderizarCards();
+      fecharModal();
+    }
+
+    // ---- Exercício 6.1.b: atualizar o estoque ----
+    // Soma a entrada/saída digitada em cada card à quantidade do produto
+    function atualizarEstoque() {
+      if (produtosData.length === 0) {
+        alert('Carregue o estoque primeiro.');
+        return;
+      }
+
+      const recusados = [];
+
+      produtosData.forEach(produto => {
+        const campo = document.getElementById(`mov-${produto.id}`);
+        const movimento = campo ? parseInt(campo.value, 10) : 0;
+
+        if (isNaN(movimento) || movimento === 0) return;
+
+        const novaQuantidade = produto.quantidadeEstoque + movimento;
+
+        if (novaQuantidade < 0) {
+          recusados.push(`${produto.nome} (estoque ${produto.quantidadeEstoque}, saída ${-movimento})`);
+          return;
+        }
+
+        produto.quantidadeEstoque = novaQuantidade;
+      });
+
+      renderizarCards(); // redesenha com os novos valores e zera os campos de movimento
+
+      if (recusados.length > 0) {
+        alert('Saída maior que o estoque, não aplicada em:\n- ' + recusados.join('\n- '));
+      }
+    }
+
+    // ---- Exercício 6.1.b: salvar o estoque em arquivo JSON ----
+    async function salvarEstoque() {
+      if (produtosData.length === 0) {
+        alert('Não há dados para salvar. Carregue o estoque primeiro.');
+        return;
+      }
+
+      const jsonString = JSON.stringify(produtosData, null, 2);
+
+      if ('showSaveFilePicker' in window) {
+        // API moderna: abre a caixa "Salvar como" e grava direto no disco
+        try {
+          const handle = await window.showSaveFilePicker({
+            suggestedName: 'estoque.json',
+            types: [{ description: 'Arquivo JSON', accept: { 'application/json': ['.json'] } }]
+          });
+          const writable = await handle.createWritable();
+          await writable.write(jsonString);
+          await writable.close();
+        } catch (err) {
+          if (err.name !== 'AbortError') console.error(err);
+        }
+      } else {
+        // Alternativa: download via Blob
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'estoque.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    }
+  </script>
+</body>
+</html>

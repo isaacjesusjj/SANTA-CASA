@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Potência e Fatorial</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    input {
+      width: 80px;
+      padding: 10px;
+      margin: 5px;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #res {
+      background-color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+
+<script>
+
+  function potencia() {
+
+    const base = parseInt(num1.value);
+    const expoente = parseInt(num2.value);
+
+    let resultado = 1;
+
+    for (let i = 1; i <= expoente; i++) {
+      resultado = resultado * base;
+    }
+
+    res.value = resultado;
+  }
+
+
+  function fatorial() {
+
+    const numero = parseInt(num1.value);
+
+    let resultado = 1;
+
+    for (let i = 1; i <= numero; i++) {
+      resultado = resultado * i;
+    }
+
+    res.value = resultado;
+  }
+
+</script>
+
+<div class="container">
+
+  <h2>Potência e Fatorial</h2>
+
+  <input type="number" value="2" id="num1">
+
+  <input type="number" value="3" id="num2">
+
+  <br>
+
+  <button onclick="potencia()">Potência</button>
+
+  <button onclick="fatorial()">Fatorial</button>
+
+  <br>
+
+  <input type="number" id="res" readonly>
+
+</div>
+
+</body>
+</html>
